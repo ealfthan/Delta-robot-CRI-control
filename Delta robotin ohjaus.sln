@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delta robotin ohjaus", "Delta robotin ohjaus\Delta robotin ohjaus.csproj", "{8F528C50-C90E-4C9D-BE2E-18DF77E76499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F528C50-C90E-4C9D-BE2E-18DF77E76499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F528C50-C90E-4C9D-BE2E-18DF77E76499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F528C50-C90E-4C9D-BE2E-18DF77E76499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F528C50-C90E-4C9D-BE2E-18DF77E76499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5863823-C366-4DE3-B7C1-FED463EB7758}
+	EndGlobalSection
+EndGlobal

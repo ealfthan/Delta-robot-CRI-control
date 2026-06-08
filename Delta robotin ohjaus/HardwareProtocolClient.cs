@@ -536,6 +536,9 @@ namespace Delta_robotin_ohjaus
                 if (msgType == "STATUS")
                 {
                     ParseStatusString(msg);
+                    int DINLocation = msg.IndexOf("DIN") + 4;
+                    int DOUTLocation = DINLocation + 7;
+                    //Console.WriteLine("DIN and DOUT " + msg[DINLocation] + ", " + msg[DOUTLocation]);
                     if (!flagHideBasicStatusMessages) log.Info(msg);
                     return;
                 }

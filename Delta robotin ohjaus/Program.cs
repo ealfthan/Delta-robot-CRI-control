@@ -9,8 +9,9 @@ double standardVel = 100;
 log4net.Config.BasicConfigurator.Configure();
 HardwareProtocolClient criController = new HardwareProtocolClient();
 
-criController.IPAddress = "192.168.3.11"; //192.168.3.11 || locahost
-criController.Port = 3920; // 3920 || 3921
+criController.IPAddress = "localhost"; //192.168.3.11 || locahost
+criController.Port = 3921; // 3920 || 3921
+criController.flagHideBasicStatusMessages = false;
 
 criController.Connect();
 

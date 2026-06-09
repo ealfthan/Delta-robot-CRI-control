@@ -21,6 +21,16 @@ if (!criController.WaitForConnection())
     return;
 }
 
+criController.SetDigitalOutput(22, true);
+criController.SetDigitalOutput(23, true);
+
+bool[] dout = criController.GetDigitalOutputs();
+
+for (int i = 0; i < dout.Length; i++)
+{
+    Console.WriteLine(dout[i] + ",");
+}
+
 // HUOM! 5mm < z < 135mm
 
 criController.MoveToCoord(motionType.Cart, 100, 0, 70, standardVel);

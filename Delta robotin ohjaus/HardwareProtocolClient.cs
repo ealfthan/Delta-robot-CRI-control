@@ -834,7 +834,7 @@ namespace Delta_robotin_ohjaus
 
         public void SetDigitalOutput(int pinNumber, bool state)
         {
-            string msg = "CMD OUT " + pinNumber.ToString() + " " + (state ? "true" : "false");
+            string msg = "CMD DOUT " + pinNumber.ToString() + " " + (state ? "true" : "false");
             SendCommand(msg);
         }
 

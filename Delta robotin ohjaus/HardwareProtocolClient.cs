@@ -523,7 +523,6 @@ namespace Delta_robotin_ohjaus
         /// <param name="msg">CRI message</param>
         private void ParseString(string msg)
         {
-            //Console.WriteLine("RX: " + msg);
             try
             {
                 // Split the string into parts
@@ -536,9 +535,6 @@ namespace Delta_robotin_ohjaus
                 if (msgType == "STATUS")
                 {
                     ParseStatusString(msg);
-                    int DINLocation = msg.IndexOf("DIN") + 4;
-                    int DOUTLocation = DINLocation + 7;
-                    //Console.WriteLine("DIN and DOUT " + msg[DINLocation] + ", " + msg[DOUTLocation]);
                     if (!flagHideBasicStatusMessages) log.Info(msg);
                     return;
                 }
@@ -818,6 +814,43 @@ namespace Delta_robotin_ohjaus
 
             log.Info(msg);
             return res;
+        }
+
+        public bool[] GetDigitalinputs(int count = 64)
+        {
+            bool[] pins = new bool[count];
+            for (int i = 0; i < count; i++)
+                pins[i] = (digialInputs & (1UL << i)) != 0;
+            return pins;
+        }
+
+        public bool[] GetDigitalOutputs(int count = 64)
+        {
+            bool[] pins = new bool[count];
+            for (int i = 0; i < count; i++)
+                pins[i] = (digialOutputs & (1UL << i)) != 0;
+            return pins;
+        }
+
+        public void SetDigitalOutput(int pinNumber, bool state)
+        {
+            string msg = "CMD OUT " + pinNumber.ToString() + " " + (state ? "true" : "false");
+            SendCommand(msg);
+        }
+
+        public void SetDigitalOutputs(bool[] pins)
+        {
+            for (int i = 0; i < pins.Length; i++) 
+                SetDigitalOutput(i, pins[i]);
+        }
+
+        public void SetDigitalOutputMask(ulong mask)
+        {
+            for (int i = 0; i < 64; i++)
+            {
+                bool state = (mask & (1UL << i)) != 0;
+                SetDigitalOutput(i, state);
+            }
         }
 
 

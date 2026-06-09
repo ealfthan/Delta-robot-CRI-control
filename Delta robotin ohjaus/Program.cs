@@ -4,7 +4,7 @@ using log4net;
 using static Delta_robotin_ohjaus.HardwareProtocolClient;
 
 
-double standardVel = 100;
+double standardVel = 9999;
 
 log4net.Config.BasicConfigurator.Configure();
 HardwareProtocolClient criController = new HardwareProtocolClient();
@@ -23,7 +23,7 @@ if (!criController.WaitForConnection())
 
 // HUOM! 5mm < z < 135mm
 
-criController.MoveToCoord(motionType.Cart, 100, -100, 70, standardVel);
+criController.MoveToCoord(motionType.Cart, 100, 0, 70, standardVel);
 if (!criController.WaitForMove()) { return; }
 
 criController.MoveToCoord(motionType.Cart, -100, -100, 70, standardVel);
@@ -32,7 +32,7 @@ if (!criController.WaitForMove()) { return; }
 criController.MoveToCoord(motionType.Cart, -100, 100, 70, standardVel);
 if (!criController.WaitForMove()) { return; }
 
-criController.MoveToCoord(motionType.Cart, 100, 100, 70, standardVel);
+criController.MoveToCoord(motionType.Cart, 100, 0, 70, standardVel);
 if (!criController.WaitForMove()) { return; }
 
 Thread.Sleep(5000);
